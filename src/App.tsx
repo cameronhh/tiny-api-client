@@ -105,7 +105,7 @@ function App() {
         <h1>Create a Tiny API 🧝</h1>
         <div className="input-group">
           <label htmlFor="endpoint-url">
-            Endpoint URL <i>{`(tiny-api.dev/api/public/<endpoint-url>)`}</i>
+            Endpoint URL <i>{`(api.tiny-api.dev/temp/<endpoint-url>)`}</i>
           </label>
           <input
             id="endpoint-url"
