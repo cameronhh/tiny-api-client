@@ -157,9 +157,9 @@ function App() {
           <h2>Your Tiny API</h2>
           <div className="preview">
             <pre>
-              {`URL: ${
-                process.env.REACT_APP_API_URL
-              }/public/${encodeURIComponent(endpointUrl).toLowerCase()}`}
+              {`URL: ${process.env.REACT_APP_API_URL}/temp/${encodeURIComponent(
+                endpointUrl
+              )}`}
               <br />
               Method: GET
               <br />
