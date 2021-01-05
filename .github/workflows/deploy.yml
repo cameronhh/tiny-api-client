@@ -27,4 +27,13 @@ jobs:
           KEY: ${{ secrets.SSHKEY }}
         with:
           source: './build'
-          target: '/testing/github/the-copied-build'
+          target: '/var/www/temp'
+          
+      - name: Executing remote command
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          USERNAME: ${{ secrets.USERNAME }}
+          PORT: ${{ secrets.PORT }}
+          KEY: ${{ secrets.SSHKEY }}
+          script: rm -r /var/www/tiny-api.dev && mv /var/www/temp/build /var/www/tiny-api.dev 
