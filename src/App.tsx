@@ -94,6 +94,8 @@ function App() {
       const res = await createEndpoint({ url, content });
       setSubmissionResult(res);
       setShowSuccessModal(true);
+      setEndpointUrl('');
+      setPayload('');
     } catch (err) {}
 
     setIsSubmitting(false);
