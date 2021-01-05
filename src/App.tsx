@@ -28,6 +28,14 @@ const Modal: React.FC<ModalProps> = ({ handleClose, show, children }) => {
     }
   };
 
+  const stopClickPropagation = (
+    ev: React.MouseEvent<HTMLDivElement, MouseEvent>
+  ) => {
+    ev.preventDefault();
+    ev.stopPropagation();
+    return false;
+  };
+
   React.useEffect(() => {
     window.addEventListener('keydown', closeOnEscape);
     return () => {
@@ -36,8 +44,8 @@ const Modal: React.FC<ModalProps> = ({ handleClose, show, children }) => {
   }, []);
 
   return (
-    <div className={showHideClassName}>
-      <section className="modal-main">
+    <div className={showHideClassName} onClick={handleClose}>
+      <section className="modal-main" onClick={stopClickPropagation}>
         {children}
         <div className="modal-footer">
           <button type="button" onClick={handleClose}>
@@ -55,9 +63,7 @@ function App() {
   const [error, setError] = React.useState<string>('');
   const [displayPayload, setDisplayPayload] = React.useState<string>('');
   const [isSubmitting, setIsSubmitting] = React.useState<boolean>(false);
-  const [showSuccessModal, setShowSuccessModal] = React.useState<boolean>(
-    false
-  );
+  const [showSuccessModal, setShowSuccessModal] = React.useState<boolean>(true);
   const [
     submissionResult,
     setSubmissionResult,
