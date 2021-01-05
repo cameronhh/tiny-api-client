@@ -4,12 +4,6 @@ import 'styles/App.scss';
 
 import { createEndpoint } from 'api';
 
-interface ISubmissionResult {
-  url: string;
-  id: number;
-  content: string;
-}
-
 const ErrorText: React.FC = ({ children }) => <p className="error-text">{children}</p>;
 
 type ModalProps = {
