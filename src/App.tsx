@@ -10,9 +10,7 @@ interface ISubmissionResult {
   content: string;
 }
 
-const ErrorText: React.FC = ({ children }) => (
-  <p className="error-text">{children}</p>
-);
+const ErrorText: React.FC = ({ children }) => <p className="error-text">{children}</p>;
 
 type ModalProps = {
   handleClose: () => void;
@@ -28,9 +26,7 @@ const Modal: React.FC<ModalProps> = ({ handleClose, show, children }) => {
     }
   };
 
-  const stopClickPropagation = (
-    ev: React.MouseEvent<HTMLDivElement, MouseEvent>
-  ) => {
+  const stopClickPropagation = (ev: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
     ev.preventDefault();
     ev.stopPropagation();
     return false;
@@ -63,9 +59,7 @@ function App() {
   const [error, setError] = React.useState<string>('');
   const [displayPayload, setDisplayPayload] = React.useState<string>('');
   const [isSubmitting, setIsSubmitting] = React.useState<boolean>(false);
-  const [showSuccessModal, setShowSuccessModal] = React.useState<boolean>(
-    false
-  );
+  const [showSuccessModal, setShowSuccessModal] = React.useState<boolean>(false);
 
   const handleSubmit = async () => {
     setIsSubmitting(true);
@@ -111,9 +105,7 @@ function App() {
         <div className="input-group">
           <label htmlFor="endpoint-url">
             Endpoint URL{' '}
-            <i>{`(api.tiny-api.dev/temp/${
-              endpointUrl ? endpointUrl : '<endpoint-url>'
-            })`}</i>
+            <i>{`(api.tiny-api.dev/temp/${endpointUrl ? endpointUrl : '<endpoint-url>'})`}</i>
           </label>
           <input
             id="endpoint-url"
@@ -138,11 +130,7 @@ function App() {
               setPayload(event.target.value);
               setError('');
               try {
-                const parsedPayload = JSON.stringify(
-                  JSON.parse(event.target.value),
-                  null,
-                  2
-                );
+                const parsedPayload = JSON.stringify(JSON.parse(event.target.value), null, 2);
                 setDisplayPayload(parsedPayload);
               } catch (err) {
                 setDisplayPayload('Invalid JSON');
@@ -165,9 +153,7 @@ function App() {
           <h2>Your Tiny API</h2>
           <div className="preview">
             <pre>
-              {`URL: ${process.env.REACT_APP_API_URL}/temp/${encodeURIComponent(
-                endpointUrl
-              )}`}
+              {`URL: ${process.env.REACT_APP_API_URL}/temp/${encodeURIComponent(endpointUrl)}`}
               <br />
               Method: GET
               <br />
