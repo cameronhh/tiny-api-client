@@ -85,8 +85,6 @@ function App() {
     try {
       await createEndpoint({ url, content });
       setShowSuccessModal(true);
-      setEndpointUrl('');
-      setPayload('');
     } catch (err) {}
 
     setIsSubmitting(false);
@@ -141,6 +139,8 @@ function App() {
         <Modal
           show={showSuccessModal}
           handleClose={() => {
+            setEndpointUrl('');
+            setPayload('');
             setShowSuccessModal(false);
           }}
         >
