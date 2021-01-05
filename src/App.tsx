@@ -63,7 +63,9 @@ function App() {
   const [error, setError] = React.useState<string>('');
   const [displayPayload, setDisplayPayload] = React.useState<string>('');
   const [isSubmitting, setIsSubmitting] = React.useState<boolean>(false);
-  const [showSuccessModal, setShowSuccessModal] = React.useState<boolean>(true);
+  const [showSuccessModal, setShowSuccessModal] = React.useState<boolean>(
+    false
+  );
 
   const handleSubmit = async () => {
     setIsSubmitting(true);
