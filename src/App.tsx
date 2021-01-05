@@ -64,10 +64,6 @@ function App() {
   const [displayPayload, setDisplayPayload] = React.useState<string>('');
   const [isSubmitting, setIsSubmitting] = React.useState<boolean>(false);
   const [showSuccessModal, setShowSuccessModal] = React.useState<boolean>(true);
-  const [
-    submissionResult,
-    setSubmissionResult,
-  ] = React.useState<ISubmissionResult>({ url: '', id: 0, content: '' });
 
   const handleSubmit = async () => {
     setIsSubmitting(true);
@@ -97,8 +93,7 @@ function App() {
     }
 
     try {
-      const res = await createEndpoint({ url, content });
-      setSubmissionResult(res);
+      await createEndpoint({ url, content });
       setShowSuccessModal(true);
       setEndpointUrl('');
       setPayload('');
