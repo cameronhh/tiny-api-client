@@ -143,10 +143,10 @@ function App() {
           />
         </div>
         <div className="submit-box">
+          {error && <ErrorText>{error}</ErrorText>}
           <button disabled={isSubmitting} type="submit" onClick={handleSubmit}>
             Create Endpoint
           </button>
-          {error && <ErrorText>{error}</ErrorText>}
         </div>
         <Modal
           show={showSuccessModal}
