@@ -102,7 +102,7 @@ function App() {
   return (
     <>
       <main>
-        <h1>Create a Tiny API 🧝</h1>
+        <h1>Create a Tiny API</h1>
         <div className="input-group">
           <label htmlFor="endpoint-url">
             Endpoint URL <i>{`(api.tiny-api.dev/temp/<endpoint-url>)`}</i>
