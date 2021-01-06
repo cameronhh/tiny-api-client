@@ -7,7 +7,7 @@
 body {
   font-size: 18px;
   font-weight: 700;
-  font-family: 'Comic Neue', 'Fira Code', monospace;
+  font-family: 'Comic Neue', sans-serif;
   margin: 0;
   padding: 0;
   background-color: $secondary-color;
@@ -109,7 +109,7 @@ main {
     padding: 0.5em 1em;
     border-radius: 0.5em;
     border: 0.175em solid $input-field-outline-color;
-    font-family: 'Comic Neue', 'Fira Code', monospace;
+    font-family: 'Comic Neue', sans-serif;
     font-size: 1em;
     font-weight: 700;
     color: $heading-color;
