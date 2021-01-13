@@ -7,7 +7,7 @@
 
 
 This repo is the front end code for [https://tiny-api.dev](https://tiny-api.dev). The Tiny API website was created with [Create React App](https://github.com/facebook/create-react-app).
-The code for the server can be found [here](https://github.com/cameronhh/tiny-api).
+***The code for the server can be found [here](https://github.com/cameronhh/tiny-api)***
 
 ## Setting up the development environment
 
