@@ -11,6 +11,14 @@ type ModalProps = {
   show: boolean;
 };
 
+const isSafeURL = (url: string): boolean => {
+  try {
+    return encodeURIComponent(url) === decodeURIComponent(url);
+  } catch (error) {
+    return false;
+  }
+};
+
 const Modal: React.FC<ModalProps> = ({ handleClose, show, children }) => {
   const showHideClassName = show ? 'modal display-block' : 'modal display-none';
 
@@ -60,15 +68,24 @@ function App() {
     let url: string = '';
 
     try {
-      url = encodeURIComponent(endpointUrl);
+      if (!isSafeURL(endpointUrl)) {
+        throw new Error();
+      }
+      url = endpointUrl;
     } catch (err) {
-      setError('Error parsing Endpoint URL');
+      setError('😢 Only URL safe characters are allowed 😢');
       setIsSubmitting(false);
       return;
     }
 
     if (!url) {
-      setError('Please provide an Endpoint URL');
+      setError('🤷‍♂️ Please provide an Endpoint URL 🤷‍♂️');
+      setIsSubmitting(false);
+      return;
+    }
+
+    if (!payload) {
+      setError('🤦‍♀️ Please provide some content 🤦‍♀️');
       setIsSubmitting(false);
       return;
     }
@@ -77,7 +94,7 @@ function App() {
     try {
       content = JSON.stringify(JSON.parse(payload));
     } catch (err) {
-      setError('Invalid JSON');
+      setError('😡 Invalid JSON 😡');
       setIsSubmitting(false);
       return;
     }
@@ -107,7 +124,11 @@ function App() {
             value={endpointUrl}
             onChange={(event) => {
               setEndpointUrl(event.target.value);
-              setError('');
+              if (!isSafeURL(event.target.value)) {
+                setError("🤠 Bet it won't work 🤠");
+              } else {
+                setError('');
+              }
             }}
           />
         </div>
