@@ -3,6 +3,7 @@
 
 - *Quickly prototyping some front-end code and need a couple of endpoints to return some static JSON?*
 - *Perhaps you're integrating a front-end with a back-end that doesn't have a test server?*
+- _Maybe, you just want to see a website with a memorable user experience?_
 - ***Make an endpoint that returns static JSON in seconds with [Tiny API](https://tiny-api.dev)***
 
 
